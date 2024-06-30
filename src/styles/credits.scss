@@ -1,0 +1,14 @@
+.credits {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 20px;
+  width: 100%;
+  left: 0;
+  padding: 0px 40px;
+
+  a {
+    color: black;
+    font-weight: 600;
+  }
+}

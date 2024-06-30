@@ -467,4 +467,18 @@ body {
   transition: transform 0.25s ease-out;
 }
 
+.credits {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  top: 20px;
+  width: 100%;
+  left: 0;
+  padding: 0px 40px;
+}
+.credits a {
+  color: black;
+  font-weight: 600;
+}
+
 /*# sourceMappingURL=index.css.map */

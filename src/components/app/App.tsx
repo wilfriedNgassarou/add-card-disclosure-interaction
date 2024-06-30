@@ -3,6 +3,7 @@ import AddButton from "../add button/AddButton";
 import Cash from "../cash/Cash";
 import PaymentMode from "../payment Mode/PaymentMode";
 import Wallet, { Amount } from "../wallet/Wallet";
+import Credits from "../credits/Credits";
 
 
 export default function App() {
@@ -42,6 +43,7 @@ export default function App() {
           setAmounts={setAmounts}
         />
       </section>
+      <Credits />
     </section>
   )
 }
