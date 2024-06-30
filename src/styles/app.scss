@@ -1,0 +1,28 @@
+.app {
+  width: 100%;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// default closed
+.container {
+  padding: 5px 10px;
+  background-color: white;
+  box-shadow: 0px 0px 2px rgba($color: #000000, $alpha: .45);
+  position: relative;
+  width: 300px;
+  height: 60px;
+  transition: height .4s ease;
+  border-radius: 9px;
+  overflow: hidden;
+}
+
+// btn-height: 40px
+// 12px margin top
+// 270px normal box height
+.container-open {
+  height: calc(270px + 12px + 40px) ;
+
+}

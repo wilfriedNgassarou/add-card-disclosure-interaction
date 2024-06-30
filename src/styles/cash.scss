@@ -1,0 +1,48 @@
+.cash {
+  margin-top: 12px;
+
+  h1 {
+    font-size: $title-size;
+    color: $grey2;
+    font-weight: 400;
+  }
+
+  .cash-body {
+    position: relative;
+    margin-top: 9px;
+    display: flex;
+    justify-content: space-between;
+    gap: 9px;
+
+    .cash-item {
+      height: 30px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: calc(100% / 3);
+      border-radius: 9px;
+      background-color: $grey;  
+      position: relative;
+      cursor: default;
+      font-weight: 700;
+      transition: background-color .25s ease-out;
+    }
+
+    .cash-item-active {
+      background-color: white;
+    }
+
+    .cash-cursor {
+      position: absolute;
+      top: 0px;
+      z-index: 2;
+      left: 0;
+      height: 100%;
+      border: 2px solid black;
+      width: 100%;
+      border-radius: 9px;
+      transition: transform .25s ease-out;
+    }
+  }
+}

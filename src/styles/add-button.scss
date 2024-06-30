@@ -1,0 +1,206 @@
+.add-button {
+  position: absolute;
+  right: 10px;
+  // 30px etant la taille du container divise par 2 et 20px celui du bouton divise par 2 
+  bottom: calc(30px - 20px);
+  transition: all .4s ease;
+  height: 30px;
+  width: 100px;
+  border-radius: 21px;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.add-button-text {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  position: absolute;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform .3s ease-out;
+
+  &:hover {
+    svg {
+      transform: scale(1.15);
+
+    }
+  }
+
+  svg {
+    height: 15px;
+    width: 15px;
+    transition: transform .1s ease-in;
+  }
+
+  span {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+  }
+
+  .loader {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 9px;
+    transform: translateX(-100%);
+
+    div {
+      height: 100%;
+      width: 2px;
+      background-color: white;
+      transform: skewX(-30deg);
+
+      &:nth-of-type(1) {
+        width: 4px ;
+      }
+      &:nth-of-type(2) {
+        width: 2px ;
+      }
+      &:nth-of-type(3) {
+        width: 8px;
+      }
+      &:nth-of-type(4) {
+        width: 2px ;
+      }
+      &:nth-of-type(5) {
+        width: 12px ;
+      }
+    }
+  }
+
+  .loader-open {
+    transform: translateX(100%);
+    transition: transform .35s ease-out;
+  }
+}
+
+.add-button-confirm {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 10;
+  display: flex;
+  transition: transform .3s ease-out;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  font-size: 13px;
+
+  svg {
+    display: flex;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.add-button-progress-container {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transition: transform .3s ease-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  
+  .progress {
+    height: 6px;
+    width: 65%;
+    border-radius: 6px;
+    background-color: rgb(164, 163, 163);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    div {
+      width: 100%;
+      height: 100%;
+      background-color: white;
+      transform-origin: left;
+      transform: scaleX(0);
+      transition: transform .45s ease-in-out;
+    }
+  }
+  
+  .progress-done {
+    div {
+      transform: scaleX(1) ;
+    }
+  }
+
+}
+
+.add-button-open {
+  bottom: 9px;
+  // 300px est la taille du bloc, 100px la taille du bouton et 10px la marge
+  right: calc(300px - 100px - 10px);
+}
+
+
+.translate-y-1 {
+  transform: translateY(100%);
+}
+
+.translate-y-0 {
+  transform: translateY(0);
+}
+
+.-translate-y-1 {
+  transform: translateY(-100%);
+}
+
+.translate-x-1 {
+  transform: translateX(100%);
+}
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.-translate-x-1 {
+  transform: translateX(-100%);
+}
+
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  
+  50% {
+    transform: rotate(-50deg);
+  }
+  
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: .4s;
+  animation-timing-function: linear;
+}
