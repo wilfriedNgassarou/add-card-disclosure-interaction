@@ -1,11 +1,18 @@
 .credits {
   position: absolute;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
   top: 20px;
   width: 100%;
   left: 0;
   padding: 0px 40px;
+  
+  @media (min-width: 992px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 
   a {
     color: black;
