@@ -1,7 +1,9 @@
+// container du text, de la progress bar, et du message de success
 .add-button {
   position: absolute;
+  // 10px pour respecter les marges 
   right: 10px;
-  // 30px etant la taille du container divise par 2 et 20px celui du bouton divise par 2 
+  // 30px etant la taille du container divisée par 2 et 20px celle du bouton divisé par 2 
   bottom: calc(30px - 20px);
   transition: all .4s ease;
   height: 30px;
@@ -16,6 +18,7 @@
   overflow: hidden;
 }
 
+// container du text add cash
 .add-button-text {
   top: 0;
   left: 0;
@@ -31,12 +34,14 @@
   overflow: hidden;
   transition: transform .3s ease-out;
 
-  &:hover {
-    svg {
-      transform: scale(1.15);
-
+  @media (min-width: 992px) {
+    &:hover {
+      svg {
+        transform: scale(1.15);
+      }
     }
   }
+
 
   svg {
     height: 15px;
@@ -50,6 +55,7 @@
     font-weight: 500;
   }
 
+  // elements qui se deplacent au clic avant action
   .loader {
     position: absolute;
     top: 0;
@@ -91,6 +97,7 @@
   }
 }
 
+// container du text << done >>
 .add-button-confirm {
   top: 0;
   left: 0;
@@ -113,6 +120,7 @@
   }
 }
 
+// container de la progress bar
 .add-button-progress-container {
   top: 0;
   left: 0;
@@ -153,6 +161,7 @@
 
 }
 
+// position du bouton quand la box est ouverte 
 .add-button-open {
   bottom: 9px;
   // 300px est la taille du bloc, 100px la taille du bouton et 10px la marge
@@ -161,15 +170,15 @@
 
 
 .translate-y-1 {
-  transform: translateY(100%);
+  transform: translateY(100%) !important;
 }
 
 .translate-y-0 {
-  transform: translateY(0);
+  transform: translateY(0) !important;
 }
 
 .-translate-y-1 {
-  transform: translateY(-100%);
+  transform: translateY(-100%) !important;
 }
 
 .translate-x-1 {

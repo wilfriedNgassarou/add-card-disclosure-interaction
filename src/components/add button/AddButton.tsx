@@ -1,21 +1,26 @@
 import { Dispatch, SetStateAction, useState } from "react"
 import Plus from "../svg/Plus"
 import Check from "../svg/Check";
+import { Amount } from "../wallet/Wallet";
 
 interface Props {
   containerState: 'close' | 'open',
   setContainerState: Dispatch<SetStateAction<'close' | 'open'>>,
-  setShowNewTotal: Dispatch<SetStateAction<boolean>>,
   rotateButton: boolean,
   setRotateButton: Dispatch<SetStateAction<boolean>>,
+  activeAmount: number,
+  amounts: Amount[],
+  setAmounts: Dispatch<SetStateAction<Amount[]>>
 }
 
 export default function AddButton({ 
   containerState, 
   setContainerState,
-  setShowNewTotal,
   rotateButton, 
   setRotateButton,
+  amounts,
+  setAmounts,
+  activeAmount
 }: Props) {
 
   // les differents etats du bouton ( text, chargement, success )
@@ -65,8 +70,6 @@ export default function AddButton({
     // retour a l'etat initial de la progress bar
     setProgressEnd(true) ;
 
-    // alert('ok')
-
     if(progressEnd == true) {
       // on affiche l'etat success
       setState('done')
@@ -77,8 +80,40 @@ export default function AddButton({
   function handlePaySuccefully() {
     // afficher le total 2 ( masqué par le overflow par défaut )
     if(state != 'done') return
-    setShowNewTotal(true)
+    const length = amounts.length ;
+    // 34 car la carte vient avec 34 dollars par default
+    const lastAmount = length > 0 ? amounts[length - 1].amount : 34 ;
 
+    const array = amounts.map((item) => {
+      if(item.position != 'top') {
+        return {
+          amount: item.amount,
+          position: 'top',
+        }
+      }
+      return item ;
+    }) 
+
+    const newAmounts = [...array, {
+      amount: lastAmount + activeAmount,
+      position: 'bottom',
+    }] as Amount[]
+
+    // le nouvel element sera en dessous par default
+    setAmounts(newAmounts) ;
+    
+
+    // on le fait transiter juste apres pour venir au milieu
+    setTimeout(() => {
+      const newAmounts = [...array, {
+        amount: lastAmount + activeAmount,
+        position: 'middle',
+      }] as Amount[]
+  
+      setAmounts(newAmounts) ;
+    }, 30);
+
+    // le texte ne revient pas directement apres done, on attend un peu
     setTimeout(() => {
       setState('text')
     }, 250);
@@ -105,6 +140,7 @@ export default function AddButton({
       >
         <span><Plus /></span>
         <span>Add Cash</span>
+        {/* elemens qui se deplacent quand on clique sur un bouton  */}
         <div
           onTransitionEnd={handleRemoveLoader}
           className={`loader loader-${textLoaderState}`}

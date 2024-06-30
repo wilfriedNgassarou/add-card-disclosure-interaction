@@ -7,6 +7,7 @@
     font-weight: 400;
   }
 
+  // container des differentes valeurs
   .cash-body {
     position: relative;
     margin-top: 9px;
@@ -14,6 +15,7 @@
     justify-content: space-between;
     gap: 9px;
 
+    // differente valeur
     .cash-item {
       height: 30px;
       height: 40px;
@@ -33,6 +35,7 @@
       background-color: white;
     }
 
+    // rectangle avec bordure noire qui permet de distinguer l'élément actif
     .cash-cursor {
       position: absolute;
       top: 0px;

@@ -37,6 +37,7 @@
 
 }
 
+// container des modes de paiement
 .payment-body {
   margin-top: 9px;
   display: flex;
@@ -44,6 +45,7 @@
   gap: 12px;
   position: relative;
 
+  // mode de paiement
   .payment-body-item { 
     background-color: $grey;   
     transition: background-color .25s ease-out;
@@ -55,6 +57,7 @@
     padding: 0 6px;
     cursor: default;
 
+    // checkbox qui permet de marquer un mode de paiement actif 
     .payment-body-item-flex {
       display: flex;
       align-items: center;
@@ -110,6 +113,7 @@
     background-color: white;
   }
   
+  // rectangle avec bordure noire qui permet de marquer un mode de paiement actif 
   .payment-mode-cursor {
     position: absolute;
     left: 0;

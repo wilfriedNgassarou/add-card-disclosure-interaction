@@ -2,25 +2,30 @@ import { useState } from "react";
 import AddButton from "../add button/AddButton";
 import Cash from "../cash/Cash";
 import PaymentMode from "../payment Mode/PaymentMode";
-import Wallet from "../wallet/Wallet";
+import Wallet, { Amount } from "../wallet/Wallet";
+
 
 export default function App() {
   const [cardState, setCardState] = useState<'close' | 'open'>('close')
+  
   const [activeAmount, setActiveAmount] = useState(100);
-  const [showNewTotal, setShowNewTotal] = useState(false) ;
+  
+  // effet de rotation lorsque le bouton se deplace
   const [rotate, setRotate] = useState(false) ;
+
+  // liste de tous les montants de la card
+  const [amounts, setAmounts] = useState<Amount[]>([]) ;
 
   function handleReset() {
     setActiveAmount(50) ;
-    setShowNewTotal(false) ;
+    setAmounts([])
   }
 
   return (
     <section className="app">
       <section className={`container container-${cardState}`}>
         <Wallet
-          showNewTotal={showNewTotal} 
-          activeAmount={activeAmount} 
+          amounts={amounts} 
           setContainerState={setCardState} 
           setRotateButton={setRotate}
           handleReset={handleReset}
@@ -32,7 +37,9 @@ export default function App() {
           setRotateButton={setRotate}
           containerState={cardState}
           setContainerState={setCardState} 
-          setShowNewTotal={setShowNewTotal}
+          activeAmount={activeAmount}
+          amounts={amounts}
+          setAmounts={setAmounts}
         />
       </section>
     </section>
