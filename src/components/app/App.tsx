@@ -42,7 +42,7 @@ export default function App() {
           setAmounts={setAmounts}
         />
       </section>
-      {/* <Credits /> */}
+      <Credits />
     </section>
   )
 }
