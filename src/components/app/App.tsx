@@ -18,7 +18,6 @@ export default function App() {
   const [amounts, setAmounts] = useState<Amount[]>([]) ;
 
   function handleReset() {
-    setActiveAmount(100) ;
     setAmounts([])
   }
 
