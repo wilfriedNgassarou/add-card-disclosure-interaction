@@ -17,7 +17,9 @@ export default function App() {
   // liste de tous les montants de la card
   const [amounts, setAmounts] = useState<Amount[]>([]) ;
 
-  function handleReset() {
+  function reset() {
+    setCardState('close')
+    setRotate(true) ;
     setAmounts([])
   }
 
@@ -26,9 +28,7 @@ export default function App() {
       <section className={`container container-${cardState}`}>
         <Wallet
           amounts={amounts} 
-          setContainerState={setCardState} 
-          setRotateButton={setRotate}
-          handleReset={handleReset}
+          reset={reset}
         />
         <PaymentMode />
         <Cash setActiveAmount={setActiveAmount} />
@@ -42,7 +42,7 @@ export default function App() {
           setAmounts={setAmounts}
         />
       </section>
-      <Credits />
+      {/* <Credits /> */}
     </section>
   )
 }

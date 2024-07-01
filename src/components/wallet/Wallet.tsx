@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import Close from "../svg/Close";
 import WalletSVG from "../svg/WalletSvg";
 
@@ -9,24 +8,18 @@ export interface Amount {
 
 interface Props {
   amounts: Amount[],
-  setContainerState: Dispatch<SetStateAction<'close' | 'open'>>,
-  setRotateButton: Dispatch<SetStateAction<boolean>>,
-  handleReset: () => void,
+  reset: () => void,
 }
 
 export default function Wallet({ 
   amounts, 
-  setContainerState, 
-  setRotateButton, 
-  handleReset 
+  reset 
 }: Props) {
 
   const currentAmount = 34 ;
 
   function handleClick() {
-    setContainerState('close')
-    setRotateButton(true)
-    handleReset()
+    reset()
   }
 
   return (
